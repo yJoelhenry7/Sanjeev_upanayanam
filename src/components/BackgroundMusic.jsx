@@ -17,7 +17,7 @@ export function BackgroundMusic({ className = '' }) {
     const audio = new Audio(AUDIO_SRC)
     audio.loop = true
     audio.preload = 'auto'
-    audio.volume = 0.45
+    audio.volume = 0.22
     audioRef.current = audio
 
     const onPlay = () => setPlaying(true)
