@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "title": "Gamini Sri Sanjeev — Upanayanam",
+    "description": "Join us in celebrating the Upanayanam of Gamini Sri Sanjeev — the sacred second birth."
+  },
+  "nav": {
+    "brand": "Sri Sanjeev",
+    "ceremony": "The ceremony",
+    "day": "The day",
+    "venue": "Venue",
+    "rsvp": "RSVP",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "english": "EN",
+    "telugu": "తెలుగు"
+  },
+  "music": {
+    "play": "Play sacred music",
+    "mute": "Mute sacred music"
+  },
+  "hero": {
+    "invite": "You are warmly invited",
+    "name": "Gamini Sri Sanjeev",
+    "subtitle": "celebrates his Upanayanam",
+    "body": "Join our family as Sanjeev receives the sacred thread — a quiet, joyful morning of mantra, fire, and blessings.",
+    "datetime": "Sunday, 29 November 2026 · Muhurtham 9:40 AM",
+    "ctaRsvp": "Will you join us?",
+    "ctaVenue": "Venue & directions",
+    "imageAlt": "Family gathered around the sacred fire for Upanayanam"
+  },
+  "ceremony": {
+    "eyebrow": "Why this day matters",
+    "title": "Not only a ceremony — a beginning",
+    "intro": "For the Gamini family, Sanjeev’s Upanayanam is a morning we have looked forward to with quiet excitement. We hope you will sit with us, offer a blessing, and share the meal that follows.",
+    "pillars": [
+      {
+        "title": "The sacred thread",
+        "body": "The yajnopavita is worn across the shoulder as a reminder of duty — to learn sincerely, live with restraint, and care for others. Three strands speak of debt to teachers, ancestors, and the divine."
+      },
+      {
+        "title": "Gayatri mantra",
+        "body": "Sanjeev will be initiated into the Gayatri — a prayer for clear mind and steady light. It is less a ritual to finish, and more a companion for the years ahead."
+      },
+      {
+        "title": "A second birth",
+        "body": "Upanayanam is often called the second birth because it marks a child’s formal step into learning and responsibility, guided by family, guru, and community."
+      }
+    ]
+  },
+  "timeline": {
+    "eyebrow": "How the morning flows",
+    "title": "A simple plan for the day",
+    "intro": "Times are approximate after the muhurtham — rituals move with the priest’s pace and the joy of the moment. Arriving a little early helps.",
+    "events": [
+      {
+        "time": "From 8:45 AM",
+        "title": "Welcome & Ganapathi Puja",
+        "detail": "Guests arrive, settle in, and we begin with prayers to Lord Ganesha for a smooth and auspicious start."
+      },
+      {
+        "time": "9:40 AM",
+        "title": "Muhurtham — Yajnopavita Dharana",
+        "detail": "The heart of the morning: Sanjeev receives the sacred thread with family around the homa fire."
+      },
+      {
+        "time": "After muhurtham",
+        "title": "Gayatri Upadesham",
+        "detail": "Initiation into the Gayatri mantra — a quiet, intimate moment of teaching and blessing."
+      },
+      {
+        "time": "Late morning",
+        "title": "Aashirvadam & lunch",
+        "detail": "Elders offer blessings, photographs, and then we share a festive meal together. Please stay if you can."
+      }
+    ]
+  },
+  "venue": {
+    "eyebrow": "Find us",
+    "title": "When & where",
+    "intro": "We would love to have you with us for the muhurtham and the meal that follows. Tap below for directions on your phone.",
+    "dateLabel": "Date",
+    "dateValue": "Sunday, 29 November 2026",
+    "muhurthamLabel": "Muhurtham",
+    "muhurthamValue": "9:40 AM",
+    "arriveBy": "Please arrive by 8:45 AM",
+    "venueLabel": "Venue",
+    "venueValue": "Ceremony hall",
+    "venueHint": "Open the map for the exact pin and parking nearby.",
+    "openMaps": "Open in Google Maps",
+    "rsvpFirst": "RSVP first",
+    "viewLocation": "View location",
+    "mapHint": "Tap to open Google Maps with the ceremony venue pin.",
+    "getDirections": "Get directions →"
+  },
+  "blessings": {
+    "eyebrow": "Please let us know",
+    "title": "RSVP & blessings",
+    "intro": "A short note helps us plan seating and lunch. If you cannot come in person, a blessing for Sanjeev still means a great deal to us.",
+    "tip1": "Kindly RSVP by 20 November 2026",
+    "tip2": "Mention if elders or little ones are joining",
+    "tip3": "Dietary needs can go in the message box",
+    "name": "Your name",
+    "namePlaceholder": "Full name",
+    "attend": "Will you attend?",
+    "yes": "Joyfully yes",
+    "no": "Sending love",
+    "guests": "Number of guests",
+    "message": "Message for Sanjeev",
+    "messagePlaceholder": "A blessing, a memory, or a small wish…",
+    "submit": "Send RSVP",
+    "thanksTitle": "Thank you",
+    "thanksBody": "We have received your note with gratitude. Looking forward to celebrating Sanjeev’s Upanayanam with you."
+  },
+  "footer": {
+    "name": "Gamini Sri Sanjeev",
+    "meta": "Upanayanam · 29 November 2026 · 9:40 AM",
+    "note": "With love from the Gamini family. Thank you for walking with us on this sacred morning.",
+    "ceremony": "Ceremony",
+    "day": "The day",
+    "venue": "Venue",
+    "rsvp": "RSVP",
+    "maps": "Maps",
+    "shanti": "Om Shanti Shanti Shanti"
+  }
+}
