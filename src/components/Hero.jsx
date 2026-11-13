@@ -1,16 +1,29 @@
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
+import { AuspiciousBanner } from '@/components/AuspiciousBanner'
 
 const HERO_IMAGE = '/Family%20Ceremony%20Around%20Sacred%20Fire.png'
 
+function guestNameFromQuery() {
+  const raw = new URLSearchParams(window.location.search).get('name')
+  if (!raw) return null
+  const cleaned = raw.trim().replace(/\s+/g, ' ').slice(0, 40)
+  if (!cleaned) return null
+  return cleaned.replace(/\b\w/g, (c) => c.toUpperCase())
+}
+
 export function Hero() {
   const { t } = useTranslation()
+  const guestName = useMemo(() => guestNameFromQuery(), [])
+  const inviteText = guestName
+    ? t('hero.inviteNamed', { name: guestName })
+    : t('hero.invite')
 
   return (
-    <section id="top" className="relative overflow-hidden">
-      {/* Stacked on mobile/tablet; overlay from laptop up */}
-      <div className="relative h-[52svh] min-h-[240px] max-h-[420px] w-full md:max-h-none md:h-[56svh] lg:absolute lg:inset-0 lg:h-auto lg:max-h-none lg:min-h-[100svh]">
+    <section id="top" className="relative min-h-[100svh] overflow-hidden">
+      <div className="absolute inset-0">
         <motion.img
           initial={{ opacity: 0, scale: 1.03 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -19,11 +32,12 @@ export function Hero() {
           alt={t('hero.imageAlt')}
           className="h-full w-full object-cover object-[center_28%] md:object-[center_35%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ivory via-ivory/20 to-transparent lg:hidden" />
-        <div className="absolute inset-0 hidden bg-gradient-to-r from-ivory via-ivory/80 to-transparent lg:block" />
+        <div className="absolute inset-0 bg-gradient-to-b from-ivory/55 via-ivory/35 to-ivory lg:bg-gradient-to-r lg:from-ivory lg:via-ivory/80 lg:to-transparent" />
       </div>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl items-end px-4 pb-16 pt-5 sm:px-6 sm:pb-20 sm:pt-8 md:pb-24 lg:min-h-[100svh] lg:items-center lg:px-8 lg:pb-24 lg:pt-28">
+      <AuspiciousBanner />
+
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-1 items-end px-4 pb-16 pt-6 sm:px-6 sm:pb-20 sm:pt-8 md:pb-24 lg:min-h-[calc(100svh-9rem)] lg:items-center lg:px-8 lg:pb-24 lg:pt-8">
         <div className="w-full max-w-xl lg:max-w-lg">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -31,7 +45,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="text-sm text-leaf"
           >
-            {t('hero.invite')}
+            {inviteText}
           </motion.p>
 
           <motion.h1

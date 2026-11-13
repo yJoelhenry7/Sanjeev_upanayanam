@@ -21,8 +21,15 @@
     "play": "Play sacred music",
     "mute": "Mute sacred music"
   },
+  "auspicious": {
+    "vinayaka": "Sri Vinayaka",
+    "srirasthu": "Srirasthu",
+    "subhamasthu": "Subhamasthu",
+    "avighnamasthu": "Avighnamasthu"
+  },
   "hero": {
-    "invite": "You are warmly invited",
+    "invite": "You are warmly invited to",
+    "inviteNamed": "{{name}}, you are warmly invited to",
     "name": "Gamini Sri Sanjeev",
     "subtitle": "celebrates his Upanayanam",
     "body": "Join our family as Sanjeev receives the sacred thread — a quiet, joyful morning of mantra, fire, and blessings.",
