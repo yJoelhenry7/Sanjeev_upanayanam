@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Volume2, VolumeX } from 'lucide-react'
+import { Music2, Volume2, VolumeX } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { getSavedMusicEnabled, setSavedMusicEnabled } from '@/lib/preferences'
 import { cn } from '@/lib/utils'
@@ -71,28 +71,41 @@ export function BackgroundMusic({ className = '' }) {
   }
 
   return (
-    <button
-      type="button"
-      onPointerDown={(e) => e.stopPropagation()}
-      onTouchStart={(e) => e.stopPropagation()}
-      onClick={(e) => {
-        e.stopPropagation()
-        toggle()
-      }}
-      aria-pressed={enabled}
-      aria-label={enabled ? t('music.mute') : t('music.play')}
-      title={enabled ? t('music.mute') : t('music.play')}
+    <div
       className={cn(
-        'pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-leaf/20 bg-ivory/95 text-forest shadow-[0_10px_30px_-12px_rgba(143,122,18,0.45)] backdrop-blur-md transition hover:bg-foam sm:h-12 sm:w-12',
-        enabled && playing && 'ring-1 ring-leaf/30',
+        'pointer-events-auto inline-flex items-center rounded-full border border-leaf/20 bg-ivory/95 p-1 shadow-[0_10px_30px_-12px_rgba(143,122,18,0.45)] backdrop-blur-md',
+        enabled && playing && 'ring-1 ring-leaf/25',
         className,
       )}
+      role="group"
+      aria-label={t('music.label')}
+      onPointerDown={(e) => e.stopPropagation()}
+      onTouchStart={(e) => e.stopPropagation()}
     >
-      {enabled ? (
-        <Volume2 className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.75} />
-      ) : (
-        <VolumeX className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.75} />
-      )}
-    </button>
+      <span
+        className="inline-flex h-8 w-8 items-center justify-center text-forest sm:h-9 sm:w-9"
+        aria-hidden="true"
+      >
+        <Music2 className="h-4 w-4" strokeWidth={1.75} />
+      </span>
+
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation()
+          toggle()
+        }}
+        aria-pressed={enabled}
+        aria-label={enabled ? t('music.mute') : t('music.play')}
+        title={enabled ? t('music.mute') : t('music.play')}
+        className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-forest text-ivory shadow-sm transition hover:bg-leaf sm:h-9 sm:w-9"
+      >
+        {enabled ? (
+          <Volume2 className="h-4 w-4" strokeWidth={1.75} />
+        ) : (
+          <VolumeX className="h-4 w-4" strokeWidth={1.75} />
+        )}
+      </button>
+    </div>
   )
 }

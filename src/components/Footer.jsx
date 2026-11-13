@@ -43,9 +43,6 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="mt-10 text-xs tracking-[0.18em] uppercase text-moss/80">
-          {t('footer.shanti')}
-        </p>
       </div>
     </footer>
   )

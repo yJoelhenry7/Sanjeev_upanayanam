@@ -15,6 +15,9 @@
     "telugu": "తెలుగు"
   },
   "music": {
+    "label": "Background music",
+    "on": "On",
+    "off": "Mute",
     "play": "Play sacred music",
     "mute": "Mute sacred music"
   },
@@ -119,7 +122,6 @@
     "day": "The day",
     "venue": "Venue",
     "rsvp": "RSVP",
-    "maps": "Maps",
-    "shanti": "Om Shanti Shanti Shanti"
+    "maps": "Maps"
   }
 }
