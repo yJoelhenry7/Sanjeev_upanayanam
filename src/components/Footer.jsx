@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { RSVP_FORM_URL } from '@/lib/rsvp'
 
 export function Footer() {
   const { t } = useTranslation()
@@ -29,7 +30,12 @@ export function Footer() {
             <a href="#venue" className="hover:text-ivory">
               {t('footer.venue')}
             </a>
-            <a href="#blessings" className="hover:text-ivory">
+            <a
+              href={RSVP_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-ivory"
+            >
               {t('footer.rsvp')}
             </a>
             <a

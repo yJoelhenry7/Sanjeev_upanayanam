@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { AuspiciousBanner } from '@/components/AuspiciousBanner'
+import { RSVP_FORM_URL } from '@/lib/rsvp'
 
 const HERO_IMAGE = '/Family%20Ceremony%20Around%20Sacred%20Fire.png'
 
@@ -32,7 +33,10 @@ export function Hero() {
           alt={t('hero.imageAlt')}
           className="h-full w-full object-cover object-[center_28%] md:object-[center_35%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ivory/55 via-ivory/35 to-ivory lg:bg-gradient-to-r lg:from-ivory lg:via-ivory/80 lg:to-transparent" />
+        {/* Mobile: ~40% white overlay for readability */}
+        <div className="absolute inset-0 bg-white/40 lg:hidden" />
+        {/* Desktop: soft left-to-right fade */}
+        <div className="absolute inset-0 hidden bg-gradient-to-r from-ivory via-ivory/80 to-transparent lg:block" />
       </div>
 
       <AuspiciousBanner />
@@ -91,7 +95,9 @@ export function Hero() {
             className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap"
           >
             <Button asChild size="lg" className="w-full min-h-11 sm:w-auto">
-              <a href="#blessings">{t('hero.ctaRsvp')}</a>
+              <a href={RSVP_FORM_URL} target="_blank" rel="noopener noreferrer">
+                {t('hero.ctaRsvp')}
+              </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="w-full min-h-11 sm:w-auto">
               <a href="#venue">{t('hero.ctaVenue')}</a>

@@ -1,151 +1,84 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
+import { RSVP_FORM_URL } from '@/lib/rsvp'
 
 export function Blessings() {
   const { t } = useTranslation()
-  const [submitted, setSubmitted] = useState(false)
-  const [form, setForm] = useState({
-    name: '',
-    attending: 'yes',
-    guests: '1',
-    message: '',
-  })
-
-  function handleSubmit(e) {
-    e.preventDefault()
-    setSubmitted(true)
-  }
+  const tips = [t('blessings.tip1'), t('blessings.tip2'), t('blessings.tip3')]
 
   return (
-    <section id="blessings" className="relative bg-foam/40 py-14 pb-24 sm:py-20 sm:pb-28 lg:py-28 lg:pb-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8 md:gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 lg:items-start">
+    <section id="blessings" className="relative overflow-hidden py-14 pb-28 sm:py-20 sm:pb-32 lg:py-28 lg:pb-32">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_20%,rgba(224,194,58,0.16),transparent_55%),linear-gradient(180deg,rgba(251,246,220,0.55),transparent_40%,rgba(247,239,192,0.35))]" />
+
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:gap-16">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.7 }}
           >
             <p className="text-sm text-leaf">{t('blessings.eyebrow')}</p>
-            <h2 className="mt-2 font-display text-[clamp(1.75rem,5vw,2.5rem)] text-forest">
+            <h2 className="mt-2 font-display text-[clamp(1.85rem,5vw,2.75rem)] leading-tight text-forest">
               {t('blessings.title')}
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-muted">
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted md:text-lg">
               {t('blessings.intro')}
             </p>
-            <ul className="mt-6 space-y-2 text-sm text-muted">
-              <li>· {t('blessings.tip1')}</li>
-              <li>· {t('blessings.tip2')}</li>
-              <li>· {t('blessings.tip3')}</li>
-            </ul>
+
+            <div className="mt-8 grid gap-5 sm:mt-10 sm:grid-cols-3 sm:gap-6">
+              {tips.map((tip, index) => (
+                <motion.div
+                  key={tip}
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.5, delay: 0.08 * index }}
+                  className="border-t border-leaf/25 pt-4"
+                >
+                  <p className="font-display text-xs tracking-[0.2em] uppercase text-gold">
+                    {String(index + 1).padStart(2, '0')}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-ink sm:text-[0.95rem]">
+                    {tip}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.08 }}
-            className="rounded-2xl border border-leaf/15 bg-ivory p-4 shadow-[0_18px_50px_-28px_rgba(143,122,18,0.28)] sm:p-6 md:p-7"
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="relative"
           >
-            {submitted ? (
-              <div className="flex min-h-[220px] flex-col justify-center py-6 sm:min-h-[260px]">
-                <h3 className="font-display text-2xl text-forest sm:text-3xl">
-                  {t('blessings.thanksTitle')}
-                </h3>
-                <p className="mt-3 max-w-sm text-muted leading-relaxed">
-                  {t('blessings.thanksBody')}
+            <div className="absolute -inset-x-4 -inset-y-2 bg-gradient-to-br from-gold/15 via-transparent to-leaf/10 sm:-inset-x-6" />
+            <div className="relative border-y border-leaf/20 py-8 sm:py-10">
+              <p className="font-display text-2xl leading-snug text-forest sm:text-3xl">
+                {t('blessings.ctaTitle')}
+              </p>
+              <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted sm:text-base">
+                {t('blessings.ctaBody')}
+              </p>
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <Button asChild size="lg" className="min-h-11 w-full sm:w-auto">
+                  <a href={RSVP_FORM_URL} target="_blank" rel="noopener noreferrer">
+                    {t('blessings.submit')}
+                    <ExternalLink className="size-4 opacity-80" aria-hidden />
+                  </a>
+                </Button>
+                <p className="text-xs leading-snug text-muted sm:max-w-[12rem]">
+                  {t('blessings.opensExternally')}
                 </p>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <Field label={t('blessings.name')}>
-                  <input
-                    required
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className={inputClass}
-                    placeholder={t('blessings.namePlaceholder')}
-                    autoComplete="name"
-                  />
-                </Field>
-
-                <fieldset>
-                  <legend className="mb-2 block text-xs font-medium uppercase tracking-[0.16em] text-sage">
-                    {t('blessings.attend')}
-                  </legend>
-                  <div className="grid grid-cols-1 gap-2 min-[400px]:grid-cols-2">
-                    {[
-                      { value: 'yes', label: t('blessings.yes') },
-                      { value: 'no', label: t('blessings.no') },
-                    ].map((option) => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => setForm({ ...form, attending: option.value })}
-                        className={cn(
-                          'min-h-11 rounded-md border px-3 py-3 text-sm leading-snug transition',
-                          form.attending === option.value
-                            ? 'border-leaf bg-mint/70 text-forest'
-                            : 'border-leaf/20 bg-foam/50 text-muted hover:border-leaf/40',
-                        )}
-                      >
-                        {option.label}
-                      </button>
-                    ))}
-                  </div>
-                </fieldset>
-
-                {form.attending === 'yes' && (
-                  <Field label={t('blessings.guests')}>
-                    <select
-                      value={form.guests}
-                      onChange={(e) => setForm({ ...form, guests: e.target.value })}
-                      className={inputClass}
-                    >
-                      {['1', '2', '3', '4', '5+'].map((n) => (
-                        <option key={n} value={n}>
-                          {n}
-                        </option>
-                      ))}
-                    </select>
-                  </Field>
-                )}
-
-                <Field label={t('blessings.message')}>
-                  <textarea
-                    rows={4}
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className={cn(inputClass, 'resize-none')}
-                    placeholder={t('blessings.messagePlaceholder')}
-                  />
-                </Field>
-
-                <Button type="submit" size="lg" className="w-full min-h-11">
-                  {t('blessings.submit')}
-                </Button>
-              </form>
-            )}
+            </div>
           </motion.div>
         </div>
       </div>
     </section>
-  )
-}
-
-const inputClass =
-  'w-full rounded-md border border-leaf/20 bg-foam/70 px-4 py-3.5 text-base text-ink outline-none transition placeholder:text-muted/60 focus:border-leaf/50 focus:ring-2 focus:ring-leaf/20 sm:text-sm'
-
-function Field({ label, children }) {
-  return (
-    <label className="block">
-      <span className="mb-2 block text-xs font-medium uppercase tracking-[0.16em] text-sage">
-        {label}
-      </span>
-      {children}
-    </label>
   )
 }

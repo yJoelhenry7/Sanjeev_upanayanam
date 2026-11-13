@@ -103,23 +103,16 @@
     "getDirections": "Get directions →"
   },
   "blessings": {
-    "eyebrow": "Please let us know",
-    "title": "RSVP & blessings",
-    "intro": "A short note helps us plan seating and lunch. If you cannot come in person, a blessing for Sanjeev still means a great deal to us.",
-    "tip1": "Kindly RSVP by 20 November 2026",
-    "tip2": "Mention if elders or little ones are joining",
-    "tip3": "Dietary needs can go in the message box",
-    "name": "Your name",
-    "namePlaceholder": "Full name",
-    "attend": "Will you attend?",
-    "yes": "Joyfully yes",
-    "no": "Sending love",
-    "guests": "Number of guests",
-    "message": "Message for Sanjeev",
-    "messagePlaceholder": "A blessing, a memory, or a small wish…",
-    "submit": "Send RSVP",
-    "thanksTitle": "Thank you",
-    "thanksBody": "We have received your note with gratitude. Looking forward to celebrating Sanjeev’s Upanayanam with you."
+    "eyebrow": "Your response",
+    "title": "Kindly RSVP",
+    "intro": "A short note helps us welcome you with care — seating, lunch, and the morning’s flow. Whether you can join in person or send blessings from afar, we would love to hear from you.",
+    "tip1": "Please respond by 20 November 2026",
+    "tip2": "Tell us if elders or little ones are joining",
+    "tip3": "Note any dietary needs in the form",
+    "ctaTitle": "Share your reply",
+    "ctaBody": "Open the RSVP form — it only takes a minute, and it helps our family prepare for Sanjeev’s sacred morning.",
+    "submit": "Open RSVP form",
+    "opensExternally": "Opens Google Forms in a new tab"
   },
   "footer": {
     "name": "Gamini Sri Sanjeev",

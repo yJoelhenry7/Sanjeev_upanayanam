@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
+import { RSVP_FORM_URL } from '@/lib/rsvp'
 
 const MAP_LINK = 'https://maps.app.goo.gl/EbbAvTEEMUTAZ16z6'
 const MAP_LAT = 16.5410534
@@ -69,7 +70,9 @@ export function Venue() {
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="w-full min-h-11 sm:w-auto">
-                <a href="#blessings">{t('venue.rsvpFirst')}</a>
+                <a href={RSVP_FORM_URL} target="_blank" rel="noopener noreferrer">
+                  {t('venue.rsvpFirst')}
+                </a>
               </Button>
             </div>
           </motion.div>
