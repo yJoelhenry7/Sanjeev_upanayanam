@@ -39,7 +39,7 @@ export function Footer() {
               {t('footer.rsvp')}
             </a>
             <a
-              href="https://maps.app.goo.gl/EbbAvTEEMUTAZ16z6"
+              href="https://maps.app.goo.gl/F1fnmZoa3XkdBNM36"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-ivory"

@@ -33,10 +33,10 @@ export function Hero() {
           alt={t('hero.imageAlt')}
           className="h-full w-full object-cover object-[center_28%] md:object-[center_35%]"
         />
-        {/* Mobile: ~40% white overlay for readability */}
-        <div className="absolute inset-0 bg-white/40 lg:hidden" />
-        {/* Desktop: soft left-to-right fade */}
-        <div className="absolute inset-0 hidden bg-gradient-to-r from-ivory via-ivory/80 to-transparent lg:block" />
+        {/* Left → translucent (wider on mobile so copy stays readable like laptop) */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#fff_0%,rgba(255,255,255,0.92)_32%,rgba(255,255,255,0.45)_58%,transparent_78%)] lg:bg-[linear-gradient(to_right,#fff_0%,rgba(255,255,255,0.85)_28%,rgba(255,255,255,0.35)_42%,transparent_50%)]" />
+        {/* Soft top wash only behind garland + Vinayak + blessings */}
+        <div className="absolute inset-x-0 top-0 h-[10.5rem] bg-[linear-gradient(to_bottom,#fff_0%,rgba(255,255,255,0.75)_45%,rgba(255,255,255,0.25)_78%,transparent_100%)] sm:h-[12rem] md:h-[13.5rem]" />
       </div>
 
       <AuspiciousBanner />
@@ -99,7 +99,12 @@ export function Hero() {
                 {t('hero.ctaRsvp')}
               </a>
             </Button>
-            <Button asChild variant="outline" size="lg" className="w-full min-h-11 sm:w-auto">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="w-full min-h-11 sm:w-auto"
+            >
               <a href="#venue">{t('hero.ctaVenue')}</a>
             </Button>
           </motion.div>

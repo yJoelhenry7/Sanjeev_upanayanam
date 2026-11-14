@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { RSVP_FORM_URL } from '@/lib/rsvp'
 
-const MAP_LINK = 'https://maps.app.goo.gl/EbbAvTEEMUTAZ16z6'
-const MAP_LAT = 16.5410534
-const MAP_LNG = 81.5243862
+const MAP_LINK = 'https://maps.app.goo.gl/F1fnmZoa3XkdBNM36'
+const MAP_LAT = 16.5410726
+const MAP_LNG = 81.5244988
 
 export function Venue() {
   const { t, i18n } = useTranslation()

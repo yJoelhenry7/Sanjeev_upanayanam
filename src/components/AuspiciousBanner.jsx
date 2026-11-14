@@ -9,19 +9,30 @@ export function AuspiciousBanner() {
   ]
 
   return (
-    <div className="relative z-20 px-4 pb-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:px-6 sm:pb-4 sm:pt-4 lg:px-8">
-      <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
+    <div className="relative z-20 pt-[max(0rem,env(safe-area-inset-top))]">
+      {/* Edge-to-edge toran */}
+      <div className="pointer-events-none relative w-full overflow-hidden leading-none">
+        <img
+          src="/garland_decor.png"
+          alt=""
+          aria-hidden="true"
+          className="mx-auto block h-[4.75rem] w-full object-cover object-[center_12%] drop-shadow-sm sm:h-[5.75rem] md:h-[6.5rem] lg:h-[7rem]"
+        />
+      </div>
+
+      {/* Vinayak sits in the garland’s center dip, then the three blessings */}
+      <div className="relative z-10 mx-auto -mt-4 flex w-full max-w-3xl flex-col items-center px-4 text-center sm:-mt-5 sm:px-6 md:-mt-5 lg:px-8">
         <img
           src="/vinayaka.png"
           alt={t('auspicious.vinayaka')}
-          className="h-8 w-auto object-contain drop-shadow-md sm:h-12 md:h-16"
+          className="h-11 w-auto object-contain drop-shadow-[0_2px_8px_rgba(255,255,255,0.9)] sm:h-14 md:h-16"
         />
 
-        <div className="mt-3 flex w-full flex-col items-center gap-2 sm:mt-4 sm:flex-row sm:justify-between sm:gap-8 md:gap-12">
+        <div className="mt-2.5 flex w-full flex-row items-center justify-between gap-2 sm:mt-3 sm:gap-6 md:gap-10">
           {phrases.map((phrase) => (
             <p
               key={phrase}
-              className="font-display text-base font-medium tracking-wide text-forest drop-shadow-[0_1px_10px_rgba(255,253,245,0.95)] sm:text-lg md:text-xl"
+              className="min-w-0 flex-1 text-center font-display text-[0.72rem] font-medium leading-snug tracking-wide text-forest sm:text-base md:text-lg lg:text-xl"
             >
               {phrase}
             </p>
