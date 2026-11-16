@@ -5,6 +5,8 @@ import { getSavedMusicEnabled, setSavedMusicEnabled } from '@/lib/preferences'
 import { cn } from '@/lib/utils'
 
 const AUDIO_SRC = '/om.mp3'
+/** Keep quiet — source file is quite loud at full gain */
+const MUSIC_VOLUME = 0.08
 
 export function BackgroundMusic({ className = '' }) {
   const { t } = useTranslation()
@@ -17,16 +19,31 @@ export function BackgroundMusic({ className = '' }) {
     const audio = new Audio(AUDIO_SRC)
     audio.loop = true
     audio.preload = 'auto'
-    audio.volume = 0.22
+    audio.volume = MUSIC_VOLUME
     audioRef.current = audio
 
-    const onPlay = () => setPlaying(true)
+    const applyVolume = () => {
+      if (audioRef.current) audioRef.current.volume = MUSIC_VOLUME
+    }
+
+    const onPlay = () => {
+      applyVolume()
+      setPlaying(true)
+    }
     const onPause = () => setPlaying(false)
+    const onVolumeChange = () => {
+      // Re-assert if something bumps volume back up
+      if (audioRef.current && audioRef.current.volume > MUSIC_VOLUME + 0.01) {
+        audioRef.current.volume = MUSIC_VOLUME
+      }
+    }
     audio.addEventListener('play', onPlay)
     audio.addEventListener('pause', onPause)
+    audio.addEventListener('volumechange', onVolumeChange)
 
     const tryPlay = () => {
       if (!enabledRef.current || !audioRef.current) return
+      applyVolume()
       audioRef.current.play().catch(() => {})
     }
 
@@ -48,6 +65,7 @@ export function BackgroundMusic({ className = '' }) {
       window.removeEventListener('touchstart', unlock)
       audio.removeEventListener('play', onPlay)
       audio.removeEventListener('pause', onPause)
+      audio.removeEventListener('volumechange', onVolumeChange)
       audio.pause()
       audio.src = ''
       audioRef.current = null
@@ -64,6 +82,7 @@ export function BackgroundMusic({ className = '' }) {
     if (!audio) return
 
     if (next) {
+      audio.volume = MUSIC_VOLUME
       audio.play().catch(() => {})
     } else {
       audio.pause()
