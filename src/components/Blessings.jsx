@@ -6,7 +6,6 @@ import { RSVP_FORM_URL } from '@/lib/rsvp'
 
 export function Blessings() {
   const { t } = useTranslation()
-  const tips = [t('blessings.tip1'), t('blessings.tip2'), t('blessings.tip3')]
 
   return (
     <section id="blessings" className="relative overflow-hidden py-14 pb-28 sm:py-20 sm:pb-32 lg:py-28 lg:pb-32">
@@ -27,26 +26,6 @@ export function Blessings() {
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted md:text-lg">
               {t('blessings.intro')}
             </p>
-
-            <div className="mt-8 grid gap-5 sm:mt-10 sm:grid-cols-3 sm:gap-6">
-              {tips.map((tip, index) => (
-                <motion.div
-                  key={tip}
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.5, delay: 0.08 * index }}
-                  className="border-t border-leaf/25 pt-4"
-                >
-                  <p className="font-display text-xs tracking-[0.2em] uppercase text-gold">
-                    {String(index + 1).padStart(2, '0')}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-ink sm:text-[0.95rem]">
-                    {tip}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
 
           <motion.div
