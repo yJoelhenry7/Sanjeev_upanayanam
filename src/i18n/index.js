@@ -24,11 +24,6 @@ function applyDocumentLanguage(lng) {
   const normalized = setSavedLanguage(lng)
   document.documentElement.lang = normalized
   document.documentElement.dataset.lang = normalized
-  document.title = i18n.t('meta.title')
-  const description = document.querySelector('meta[name="description"]')
-  if (description) {
-    description.setAttribute('content', i18n.t('meta.description'))
-  }
 }
 
 applyDocumentLanguage(i18n.language)
@@ -38,3 +33,4 @@ i18n.on('languageChanged', (lng) => {
 })
 
 export default i18n
+

@@ -1,7 +1,11 @@
 {
   "meta": {
-    "title": "Gamini Sri Sanjeev — Upanayanam",
-    "description": "Join us in celebrating the Upanayanam of Gamini Sri Sanjeev — the sacred second birth."
+    "title": "Gamini Sri Sanjeev — Upanayanam Invitation",
+    "description": "You are warmly invited to the Upanayanam of Gamini Sri Sanjeev — Sunday, 29 November 2026 · Muhurtham 9:40 AM at Vabilisetty’s House, Bhimavaram.",
+    "shareTitle": "Gamini Sri Sanjeev — Upanayanam Invitation",
+    "shareTitleNamed": "{{name}}, you are warmly invited to Gamini Sri Sanjeev’s Upanayanam",
+    "shareDescription": "You are warmly invited to the Upanayanam of Gamini Sri Sanjeev — Sunday, 29 November 2026 · Muhurtham 9:40 AM at Vabilisetty’s House, Bhimavaram.",
+    "shareDescriptionNamed": "{{name}}, join us for the sacred thread ceremony on Sunday, 29 November 2026 · Muhurtham 9:40 AM at Vabilisetty’s House, Bhimavaram."
   },
   "nav": {
     "brand": "Sri Sanjeev",
@@ -37,6 +41,17 @@
     "ctaRsvp": "Will you join us?",
     "ctaVenue": "Venue & directions",
     "imageAlt": "Family gathered around the sacred fire for Upanayanam"
+  },
+  "countdown": {
+    "eyebrow": "Counting the moments",
+    "title": "Until the muhurtham",
+    "intro": "A quiet countdown to Sanjeev’s sacred morning.",
+    "arrived": "The muhurtham is here — welcome, and thank you for being with us.",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Mins",
+    "seconds": "Secs",
+    "datetime": "Sunday, 29 November 2026 · 9:40 AM"
   },
   "ceremony": {
     "eyebrow": "Why this day matters",

@@ -24,6 +24,14 @@ function inviteUrl(origin, name) {
   return url.toString()
 }
 
+function whatsappMessage(name, url) {
+  return `${name}, you are warmly invited to Gamini Sri Sanjeev’s Upanayanam.\n\nSunday, 29 November 2026 · Muhurtham 9:40 AM\nVabilisetty’s House, Bhimavaram\n\nOpen your invite:\n${url}`
+}
+
+function whatsappShareUrl(name, url) {
+  return `https://wa.me/?text=${encodeURIComponent(whatsappMessage(name, url))}`
+}
+
 export function LinksGenPage() {
   const [raw, setRaw] = useState('')
   const [copied, setCopied] = useState(null)
@@ -32,9 +40,12 @@ export function LinksGenPage() {
   const links = useMemo(() => {
     return parseNames(raw).map((name) => {
       const display = formatName(name)
+      const url = inviteUrl(origin || 'http://localhost:5173', display)
       return {
         name: display,
-        url: inviteUrl(origin || 'http://localhost:5173', display),
+        url,
+        whatsappUrl: whatsappShareUrl(display, url),
+        whatsappText: whatsappMessage(display, url),
       }
     })
   }, [raw, origin])
@@ -131,25 +142,49 @@ export function LinksGenPage() {
                     </span>
                   </a>
                 </div>
-                <Button
-                  type="button"
-                  variant="outline"
-                  size="sm"
-                  className="shrink-0 self-start sm:self-center"
-                  onClick={() => copyText(item.url, item.url)}
-                >
-                  {copied === item.url ? (
-                    <>
-                      <Check className="size-4" />
-                      Copied
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="size-4" />
-                      Copy
-                    </>
-                  )}
-                </Button>
+                <div className="flex shrink-0 flex-wrap gap-2 self-start sm:self-center">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => copyText(item.url, item.url)}
+                  >
+                    {copied === item.url ? (
+                      <>
+                        <Check className="size-4" />
+                        Copied
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="size-4" />
+                        Copy link
+                      </>
+                    )}
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => copyText(item.whatsappText, `wa-${item.url}`)}
+                  >
+                    {copied === `wa-${item.url}` ? (
+                      <>
+                        <Check className="size-4" />
+                        Copied
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="size-4" />
+                        WA text
+                      </>
+                    )}
+                  </Button>
+                  <Button asChild size="sm">
+                    <a href={item.whatsappUrl} target="_blank" rel="noreferrer">
+                      WhatsApp
+                    </a>
+                  </Button>
+                </div>
               </li>
             ))}
           </ul>

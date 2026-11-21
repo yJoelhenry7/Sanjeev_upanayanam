@@ -66,7 +66,7 @@ export function Timeline() {
                       </p>
                     </div>
                     {imageSrc && (
-                      <div className="justify-self-end md:justify-self-center">
+                      <div className="flex justify-center md:justify-self-center">
                         <img
                           src={imageSrc}
                           alt=""

@@ -3,17 +3,10 @@ import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { AuspiciousBanner } from '@/components/AuspiciousBanner'
+import { guestNameFromQuery } from '@/lib/guestName'
 import { RSVP_FORM_URL } from '@/lib/rsvp'
 
 const HERO_IMAGE = '/Family%20Ceremony%20Around%20Sacred%20Fire.png'
-
-function guestNameFromQuery() {
-  const raw = new URLSearchParams(window.location.search).get('name')
-  if (!raw) return null
-  const cleaned = raw.trim().replace(/\s+/g, ' ').slice(0, 40)
-  if (!cleaned) return null
-  return cleaned.replace(/\b\w/g, (c) => c.toUpperCase())
-}
 
 export function Hero() {
   const { t } = useTranslation()

@@ -1,4 +1,5 @@
 import { Hero } from '@/components/Hero'
+import { Countdown } from '@/components/Countdown'
 import { Ceremony } from '@/components/Ceremony'
 import { Timeline } from '@/components/Timeline'
 import { Venue } from '@/components/Venue'
@@ -13,6 +14,7 @@ export function HomePage() {
       <FallingFlowers />
       <main>
         <Hero />
+        <Countdown />
         <Ceremony />
         <Timeline />
         <Venue />
